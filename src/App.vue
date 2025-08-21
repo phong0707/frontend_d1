@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <heroArea />
+  <services-sections />
+  <about-sections />
+  <why-sections />
+  <team-sections />
+  <client-sections />
+  <info-sections />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import heroArea from "@/components/heroArea.vue";
+import servicesSections from "@/components/servicesSections.vue";
+import aboutSections from "@/components/aboutSections.vue";
+import whySections from "./components/whySections.vue";
+import TeamSections from "./components/teamSections.vue";
+import ClientSections from "./components/clientSections.vue";
+import InfoSections from "./components/infoSections.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    heroArea,
+    servicesSections,
+    aboutSections,
+    whySections,
+    TeamSections,
+    ClientSections,
+    InfoSections,
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
