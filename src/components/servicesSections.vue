@@ -11,66 +11,8 @@
           </p>
         </div>
         <div class="row">
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s1.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Currency Wallet
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s2.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Security Storage
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Expert Support
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
+          <ServiceCard v-for="(item, index) in services" :key="index" :name="item.name" :des="item.des" :image="item.image" />
+          
         </div>
         <div class="btn-box">
           <a href="">
@@ -81,3 +23,33 @@
     </div>
   </section>
 </template>
+<script>
+import ServiceCard from '@/components/cards/ServiceCard.vue';
+
+export default {
+  components: {
+    ServiceCard,
+  },
+  data(){
+    return {
+      services: [
+        {
+          name: 'Currency Wallet',
+          des: 'fact that a reader will be distracted by the readable content of a page when looking at its layout.Thepoint of using',
+          image: 'images/s1.png'
+        },
+        {
+          name: 'Security Storage',
+          des: 'fact that a reader will be distracted by the readable content of a page when looking at its layout.Thepoint of using',
+          image: 'images/s2.png'
+        },
+        {
+          name: 'Expert Support',
+          des: 'fact that a reader will be distracted by the readable content of a page when looking at its layout.Thepoint of using',
+          image: 'images/s3.png'
+        }
+      ]
+    }
+  }
+}
+</script>
