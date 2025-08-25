@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="index.html">
-            <span> Finexo </span>
+            <span> {{services[0]}} </span>
           </a>
 
           <button
@@ -81,7 +81,7 @@
                       architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1"> Read More </a>
+                      <button @click="updateTitle" href="" class="btn1"> Read More </button>
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item">
+          <!-- <div class="carousel-item">
             <div class="container">
               <div class="row">
                 <div class="col-md-6">
@@ -148,7 +148,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <ol class="carousel-indicators">
           <li
@@ -164,3 +164,49 @@
     <!-- end slider section -->
   </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+  data(){
+    return{
+      services: ['Hello' , 'Hello2']
+    }
+  },
+  methods: {
+    updateTitle(){
+      this.services[0] = "Updated"
+    }
+  },
+  beforeCreate(){
+    console.log("Hello world");
+    console.log(this.services);
+  },
+  async created(){
+    const response = await axios.get('/v1/courses')
+    // call API (Backend) to get data
+    console.log("Created and after beforeCreated");
+    console.log(response.data);
+  },
+  beforeMount(){
+    // Component appeared in DOM
+    console.log("Before Mount");
+  },
+  mounted(){
+    // Component appeared in DOM
+    console.log("Mounted");
+    
+  },
+  beforeUpdate(){
+    console.log("Before Update");
+  },
+  updated(){
+    console.log("Updated");
+  },
+  beforeUnmount(){
+    console.log("Before Unmount");
+  },
+  unmounted(){
+    console.log("Unmounted");
+  }
+}
+</script>
